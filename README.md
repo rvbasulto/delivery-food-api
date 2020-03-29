@@ -1,11 +1,11 @@
-# Symfony 5 docker containers
+# Delivery Api
 
 A Proof-of-concept of a running Symfony 5 application inside containers
 
 ```
-git clone git@gitlab.com:martinpham/symfony-5-docker.git
+git clone git@github.com:kresnik87/delivery-food-api.git
 
-cd symfony-5-docker
+cd delivery-food-api
 
 cd docker
 
@@ -26,12 +26,3 @@ Composer is included
 docker-compose run php-fpm composer 
 ```
 
-To run fixtures
-
-```
-docker-compose run php-fpm bin/console doctrine:fixtures:load
-```
-
-### Webserver (Nginx)
-
-...
