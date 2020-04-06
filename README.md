@@ -34,4 +34,9 @@ docker-compose run php-fpm composer
 ```
 docker-compose run php-fpm sh 
 ``` 
- 3 - At this momment you can execute php command line inside a container  
+ 3 - At this momment you can execute php command line inside a container 
+ 
+ ### Resources
+ Propuesta de Diagrama
+ 
+ https://drive.google.com/open?id=1ZXXnO07ybKz6O6cH2uSnFZ05Iua5GupI 
