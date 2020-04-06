@@ -16,7 +16,7 @@ docker-compose up
 
 ### Database (MariaDB)
 
-...
+
 
 ### PHP (PHP-FPM)
 
@@ -26,3 +26,12 @@ Composer is included
 docker-compose run php-fpm composer 
 ```
 
+### Run php commands inside container
+
+ 1 - Go inside a docker dir in project /delivery-food-api/docker
+ 
+ 2 - Execute this command
+```
+docker-compose run php-fpm sh 
+``` 
+ 3 - At this momment you can execute php command line inside a container  
