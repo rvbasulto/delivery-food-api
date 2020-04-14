@@ -1,5 +1,10 @@
 framework:
     secret: '%env(APP_SECRET)%'
+    serializer: { enable_annotations: true }
+    default_locale: es
+
+    translator:
+        fallback: ['es']
     #csrf_protection: true
     #http_method_override: true
 
@@ -14,3 +19,6 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+    templating:
+        engines: ['twig', 'php']
