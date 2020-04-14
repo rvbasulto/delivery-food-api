@@ -40,3 +40,15 @@ docker-compose run php-fpm sh
  Propuesta de Diagrama
  
  https://drive.google.com/open?id=1ZXXnO07ybKz6O6cH2uSnFZ05Iua5GupI 
+ 
+ ### Create admin user to manage backend EasyAdmin
+1 - First create client_id and client_secret
+  ```
+ php bin/console fos:oauth-server:create-client --redirect-uri="api/login" --grant-type="password" --grant-type="client_credentials" 
+  ``` 
+2 - Copy generated values in .env
+  
+3 -  Inside a container run next command
+ ```
+php bin/console fos:user:create adminuser --super-admin 
+ ``` 
