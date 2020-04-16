@@ -3,73 +3,56 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\RestaurantRepository")
  */
-class Restaurant
+class Restaurant extends Place
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="restaurant")
      */
-    private $name;
+    private $menus;
 
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $lat;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $lng;
-
-    public function getId(): ?int
+    public function __construct()
     {
-        return $this->id;
+        $this->menus = new ArrayCollection();
     }
 
-    public function getName(): ?string
+
+    /**
+     * @return Collection|Menu[]
+     */
+    public function getMenus(): Collection
     {
-        return $this->name;
+        return $this->menus;
     }
 
-    public function setName(?string $name): self
+    public function addMenu(Menu $menu): self
     {
-        $this->name = $name;
+        if (!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+            $menu->setRestaurant($this);
+        }
 
         return $this;
     }
 
-    public function getLat(): ?float
+    public function removeMenu(Menu $menu): self
     {
-        return $this->lat;
-    }
-
-    public function setLat(?float $lat): self
-    {
-        $this->lat = $lat;
-
-        return $this;
-    }
-
-    public function getLng(): ?float
-    {
-        return $this->lng;
-    }
-
-    public function setLng(?float $lng): self
-    {
-        $this->lng = $lng;
+        if ($this->menus->contains($menu)) {
+            $this->menus->removeElement($menu);
+            // set the owning side to null (unless already changed)
+            if ($menu->getRestaurant() === $this) {
+                $menu->setRestaurant(null);
+            }
+        }
 
         return $this;
     }
