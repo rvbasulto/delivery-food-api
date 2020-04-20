@@ -26,6 +26,12 @@ resetPassword:
     methods: ['POST','GET']
     defaults:
         _controller: App\Controller\UserController::resetPasswordRequestAction
+
+api_register:
+    path: '/register'
+    methods: ['POST']
+    defaults:
+        _controller: App\Controller\UserController::registerAction
         
 login:
     path: '/login'

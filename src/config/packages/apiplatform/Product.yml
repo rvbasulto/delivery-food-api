@@ -1,14 +1,11 @@
 resources:
-    App\Entity\Bussines:
+    App\Entity\Product:
         attributes:
             normalization_context:
-                groups: ['bussines-read']
+                groups: ['product-read']
             denormalization_context:
-                groups: ['bussines-write']
+                groups: ['product-write']
         collectionOperations:
-            register:
-                method: 'POST'
-                route_name: 'registerBussines'
             get:
                 method: 'GET'
 

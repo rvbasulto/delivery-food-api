@@ -27,19 +27,19 @@ class Bussines
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"bussines-read"})
+     * @Groups({"bussines-read","bussines-write"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"bussines-read"})
+     * @Groups({"bussines-read","bussines-write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"bussines-read"})
+     * @Groups({"bussines-read","bussines-write"})
      */
     private $logo;
 

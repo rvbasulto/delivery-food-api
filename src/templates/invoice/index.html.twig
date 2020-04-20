@@ -1,0 +1,7 @@
+{% trans_default_domain 'App' %}
+
+{% extends '@EssediEasyCommerce/invoice/index.html.twig' %}
+{% block head_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/invoice.css') }}">
+{% endblock %}
