@@ -1,0 +1,8 @@
+{# App/templates/easy_admin/Notification/list.html.twig #}
+{% extends '@EasyAdmin/default/list.html.twig' %}
+
+{% block global_actions %}
+  {{ parent() }}{{ dump(_context) }}
+  <button type="button" onclick="window.location='admin_notification';" class="btn btn-primary bold">{{ 'action.new'|trans }}</button>
+   <a href="{{ path('easyadmin', { view: 'NotificationController::notificationPage' }) }}">{{ 'action.new'|trans }}</a>
+{% endblock %}

@@ -10,8 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"restaurant" = "Restaurant","shop"="Shop"})
  */
-class Place
+ abstract  class Place
 {
     /**
      * @ORM\Id()

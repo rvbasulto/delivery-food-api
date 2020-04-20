@@ -3,5 +3,6 @@ easy_admin:
         menu:
             - { entity: Bussines, icon: 'store' }
             - { entity: User, icon: 'user' }
+            - { entity: Rate, icon: 'list-alt' }
 
 

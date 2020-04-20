@@ -1,0 +1,12 @@
+{% extends 'cms/base.html.twig' %}
+{% block page_title %}
+    {{ "page_not_found"|trans }} | {{parent()}}
+{% endblock %}
+
+{% block content_title %}
+    {{ "page_not_found"|trans}}
+{% endblock %}
+
+{%  block main %}
+    <div>{{"page_not_found"|trans}}</div>
+{% endblock %}

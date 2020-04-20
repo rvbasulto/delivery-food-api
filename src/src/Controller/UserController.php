@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use http\Exception\InvalidArgumentException;
+use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Vich\UploaderBundle\Storage\StorageInterface;
@@ -10,7 +14,7 @@ use FOS\UserBundle\Util\TokenGeneratorInterface;
 use FOS\UserBundle\Mailer\TwigSwiftMailer;
 use Doctrine\ORM\Mapping\Entity;
 
-class UserController
+class UserController extends AbstractController
 {
     /**
      * @var StorageInterface
@@ -27,16 +31,22 @@ class UserController
      * @var TwigSwiftMailer
      */
     private $fosMailer;
+    /**
+     * @var LoggerInterface
+     */
+    protected $logger;
 
     public function __construct(
         StorageInterface $storage,
         TokenGeneratorInterface $tokenGenerator,
-        TwigSwiftMailer $fosMailer
+        TwigSwiftMailer $fosMailer,
+        LoggerInterface $logger
     )
     {
         $this->storage   = $storage;
         $this->fosToken  = $tokenGenerator;
         $this->fosMailer = $fosMailer;
+        $this->logger    = $logger;
     }
 
     public function meAction(Request $request)
@@ -74,7 +84,6 @@ class UserController
 
     public function registerAction(Request $request)
     {
-
         $params = json_decode($request->getContent(), true);
         if (!$params || !count($params) || !isset($params["username"]) || !isset($params["email"]))
         {

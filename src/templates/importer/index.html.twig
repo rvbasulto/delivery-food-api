@@ -1,0 +1,6 @@
+{% extends '@EssediEasyCommerce/importer/index.html.twig' %}
+{% trans_default_domain 'messages' %}
+{% block import_types%}
+    {{ parent() }}
+    <option value="shops">{{ 'shops'|trans }}</option>
+{% endblock %}
