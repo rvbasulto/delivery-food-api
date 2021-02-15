@@ -10,6 +10,8 @@ resources:
         collectionOperations:
             register:
                 method: 'POST'
+                normalization_context:
+                   groups: ['user-read']
                 route_name: 'api_register'
             get:
                 method: 'GET'
