@@ -3,7 +3,7 @@
 A Proof-of-concept of a running Symfony 5 application inside containers
 
 ```
-git clone git@github.com:kresnik87/delivery-food-api.git
+git clone git@github.com:rvbasulto/delivery-food-api.git
 
 cd delivery-food-api
 
