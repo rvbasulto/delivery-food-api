@@ -37,7 +37,6 @@ final class Version20200328123129 extends AbstractMigration
 
         $this->addSql('DROP TABLE menu');
         $this->addSql('DROP TABLE `order`');
-        $this->addSql('DROP TABLE post');
         $this->addSql('DROP TABLE product');
         $this->addSql('DROP TABLE product_stock');
         $this->addSql('DROP TABLE restaurant');
