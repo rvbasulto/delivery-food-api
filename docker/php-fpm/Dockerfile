@@ -1,17 +1,16 @@
-FROM php:fpm-alpine
+
+FROM php:7.4-fpm
 
 COPY wait-for-it.sh /usr/bin/wait-for-it
-
 RUN chmod +x /usr/bin/wait-for-it
 
-RUN apk --update --no-cache add git
+RUN apt-get update
+RUN apt-get install -y unzip vim
 
-RUN docker-php-ext-install pdo_mysql
-
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer-1.phar
+RUN chmod 755 /usr/local/bin/composer
 
 WORKDIR /var/www
-
 CMD composer install ; wait-for-it database:3306 -- bin/console doctrine:migrations:migrate ;  php-fpm 
 
 EXPOSE 9000

@@ -1,0 +1,85 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% set _content_title = 'notifications' |trans %}
+{% block page_title %}
+    {{ _content_title }}
+{% endblock %}
+{% block content_header %}
+    <h1 class="title">{{ 'menu.notifications' | trans }}</h1>
+{% endblock %}
+{% block main %}
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="field-group col-6">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group  field-text">
+                                <label for="name" class="form-control-label">{{ 'name'|trans }}:</label>
+                                <div class="form-widget">
+                                    <input type="text" name="name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group  field-text">
+                                <label for="name" class="form-control-label">{{ 'title'|trans }}:</label>
+                                <div class="form-widget">
+                                    <input type="text" name="title" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group  field-text">
+                                <label for="name" class="form-control-label">{{ 'description'|trans }}:</label>
+                                <div class="form-widget">
+                                    <input type="text" name="description" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="field-group col-6">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group  field-entity">
+                                <label for="users" class="form-control-label">{{ 'users'|trans }}:</label>
+                                <div class="form-widget notifSelect2">
+                                    <select class="select2-container select2-container-multi" name="users[]" data-widget="select2" multiple id="selectUsers">
+                                        {% for user in users %}
+                                            <option value="{{ user.id }}">{{ user.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {{ include('@EasyAdmin/default/includes/_select2_widget.html.twig') }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group  field-button">
+                                {#<label for="selectAll" class="form-control-label">{{ 'selectAll'|trans }}:</label>#}
+                                <div class="form-widget">
+                                    <input type="button" id="selectAll" name="selectAll" value="{{ 'pickAll'|trans }}" class="btn btn-primary bold">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-12">
+                <div class="form-actions">      
+                    <button type="submit" class="btn btn-primary bold">{{ 'send' |trans }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+{% block body_javascript %}
+    {{ parent() }}
+    <script>
+        $('#selectAll').click(function () {
+            $('#selectUsers option').prop('selected', true);
+        });
+    </script>
+{% endblock %}

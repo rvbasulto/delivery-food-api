@@ -2,8 +2,7 @@ version: '3'
 
 services:
   database:
-    build:
-      context: ./database
+    image: "mysql:5.7.31"
     environment:
       - MYSQL_DATABASE=${DATABASE_NAME}
       - MYSQL_USER=${DATABASE_USER}
@@ -13,7 +12,7 @@ services:
       - "3309:3306"
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./database/data:/var/lib/mysql
+    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_general_ci', '--transaction-isolation=READ-COMMITTED']
 
   php-fpm:
     build:

@@ -23,6 +23,16 @@ class ProductStock
      */
     private $quantity;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Product")
+     */
+    private $product;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Shop", inversedBy="stokProd")
+     */
+    private $shop;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,6 +46,30 @@ class ProductStock
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getShop(): ?Shop
+    {
+        return $this->shop;
+    }
+
+    public function setShop(?Shop $shop): self
+    {
+        $this->shop = $shop;
 
         return $this;
     }

@@ -1,0 +1,64 @@
+{% extends '@EssediEasyCommerce/cms/base.html.twig' %}
+{% block navigation_toggler %}
+{% endblock  %}
+
+{% block header_logo %}
+    <a class="logo {{ easyadmin_config('site_name')|length > 14 ? 'logo-long' }}" title="{{ easyadmin_config('site_name')|striptags }}" href="{{ path('easyadmin') }}">
+        <img class='header-logo-image' src="{{asset('assets/img/blatdest.jpg')}}"/>
+    </a>
+{% endblock  %}
+{%  block user_menu %}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="footer__item">
+                        <div class="footer-header">
+                            {{ 'download_app' |trans | raw}}
+                        </div>
+                        <div class="footer-content">
+                            <a class="btn btn-outline" href="{{env("APP_GOOGLE_LINK")}}">
+                                <img src="{{ asset('assets/img/google_play.png')}}"/>
+                                <div class="text">
+                                    Google Play
+                                </div>
+                            </a>
+                            <a class="btn btn-outline" href="{{env("APP_APPLE_LINK")}}">
+                                <img src="{{ asset('assets/img/app_store.png')}}"/>
+                                <div class="text">
+                                    App Store
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="footer__item">
+                        <div class="footer-header">
+                            {{ 'contact' |trans | raw}}
+                        </div>
+                        <div class="footer-content">
+                            <div>
+                                <a href="mailto:{{ env("COMPANY_EMAIL")}}">{{ env("COMPANY_EMAIL")}}</a>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="footer__item">
+                        <div class="footer-header">
+                            {{ 'follow-us' |trans | raw}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock footer %}
+{% block main_menu_wrapper %}
+{% endblock main_menu_wrapper%}
