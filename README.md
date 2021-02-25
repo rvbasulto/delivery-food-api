@@ -43,9 +43,13 @@ docker-compose run php-fpm sh
 
 ### Init db for local development
 
+To be able to authenticate to the  database we will need to create a user and a client for symfony. The following steps create the user `adminuser` with the password `Password123**`
+
 1 - Execute `docker container exec -it -w / database bash`
+
 2 - Inside the database container execute `mysql -u appuser -papppassword`
-3 - Insert the client data and the adminuserwith the commands 
+
+3 - Insert the client data and the adminuser with the commands
 ```
 INSERT INTO `client` VALUES (1,'3ctcd291lby8oos0ks4c04ckcksgsw8wwcgsss08o4o8c0ok80','a:1:{i:0;s:9:\"api/login\";}','2di423poj3ggwco84s04cscoko4gwsw84000o84c8gcccg8s08','a:2:{i:0;s:8:\"password\";i:1;s:18:\"client_credentials\";}');
 ```
