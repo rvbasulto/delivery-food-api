@@ -55,7 +55,7 @@ INSERT INTO `client` VALUES (1,'3ctcd291lby8oos0ks4c04ckcksgsw8wwcgsss08o4o8c0ok
 ```
 and
 ```
-INSERT INTO `user` VALUES (1,NULL,NULL,'adminuser','adminuser','yaidelferrales@gmail.com','adminuser@gmail.com',1,'86AC4fR8QGqRJLTXxglxddtMPJoEYBZtx1j5UbZ/pvo','$2y$13$nEEL5tR93R5Mdzz6DObudu7Jz5O0fd34zFYVps28NQDIV8ycj1V1m','2021-02-24 23:44:38',NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES (1,NULL,NULL,'adminuser','adminuser','adminuser@gmail.com','adminuser@gmail.com',1,'86AC4fR8QGqRJLTXxglxddtMPJoEYBZtx1j5UbZ/pvo','$2y$13$nEEL5tR93R5Mdzz6DObudu7Jz5O0fd34zFYVps28NQDIV8ycj1V1m','2021-02-24 23:44:38',NULL,NULL,'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}',NULL,NULL,NULL,NULL,NULL);
 ```
 
 ### Create admin user to manage backend EasyAdmin (PRODUCTION)
